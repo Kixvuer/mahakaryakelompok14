@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Oseanografi UNESCO</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; background-color: #f0f8ff; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #006994; text-align: center; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select, button { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; }
+        button { background-color: #006994; color: white; border: none; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
+        button:hover { background-color: #004e6e; }
+        #result { margin-top: 20px; padding: 15px; background-color: #e0f7fa; border-left: 5px solid #006994; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🌊 UNESCO Ocean Calc</h1>
+    
+    <label>Pilih Algoritma:</label>
+    <select id="algoSelect" onchange="updateInputs()">
+        <option value="1">1. Conductivity -> Salinity</option>
+        <option value="2">2. Salinity -> Conductivity</option>
+        <option value="3">3. Density (EOS-80)</option>
+        <option value="4">4. Pressure -> Depth</option>
+        <option value="5">5. Freezing Point</option>
+        <option value="9">9. Sound Speed</option>
+    </select>
+
+    <div id="inputArea">
+        <label>Salinity (S) / Ratio (R):</label>
+        <input type="number" id="val1" placeholder="Masukkan angka...">
+        
+        <label>Temperature (T) &deg;C / Latitude:</label>
+        <input type="number" id="val2" placeholder="Masukkan angka...">
+        
+        <label>Pressure (P) decibars:</label>
+        <input type="number" id="val3" placeholder="Masukkan angka...">
+    </div>
+
+    <button onclick="calculate()">HITUNG SEKARANG</button>
+
+    <div id="result">
+        <h3>Hasil:</h3>
+        <p id="outputValue" style="font-size: 1.5rem; font-weight: bold;">-</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
